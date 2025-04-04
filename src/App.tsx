@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  const [ratio, setRatio] = useState('A100:B80');
-  const [aValue, setAValue] = useState(100);
-  const [bValue, setBValue] = useState(80);
-  const [dyeAmount, setDyeAmount] = useState(0);
-  const [inputType, setInputType] = useState('weight');
-  const [targetWeight, setTargetWeight] = useState(100);
-  const [targetVolume, setTargetVolume] = useState(100);
-  const [materialDensity, setMaterialDensity] = useState(1.05);
-  const [lossPercentage, setLossPercentage] = useState(20); // Процент потерь по умолчанию
 
-  const predefinedRatios = [
+// Тип для предопределенных соотношений
+interface RatioOption {
+  label: string;
+  value: string;
+  a: number;
+  b: number;
+}
+
+
+function App() {
+  const [ratio, setRatio] = useState<string>('A100:B80');
+  const [aValue, setAValue] = useState<number>(100);
+  const [bValue, setBValue] = useState<number>(80);
+  const [dyeAmount, setDyeAmount] = useState<number>(0);
+  const [inputType, setInputType] = useState<'weight' | 'volume'>('weight');
+  const [targetWeight, setTargetWeight] = useState<number>(100);
+  const [targetVolume, setTargetVolume] = useState<number>(100);
+  const [materialDensity, setMaterialDensity] = useState<number>(1.05);
+  const [lossPercentage, setLossPercentage] = useState<number>(20);//процент потерь по умолчанию
+
+  const predefinedRatios: RatioOption[] = [
     { label: 'A1:B1', value: 'A1:B1', a: 1, b: 1 },
     { label: 'A60:B40', value: 'A60:B40', a: 60, b: 40 },
     { label: 'A100:B55', value: 'A100:B55', a: 100, b: 55 },
@@ -52,8 +62,7 @@ function App() {
     };
   };
 
-  // Остальные обработчики остаются без изменений
-  const handleRatioChange = (selectedRatio) => {
+  const handleRatioChange = (selectedRatio: RatioOption) => {
     setRatio(selectedRatio.value);
     const foundRatio = predefinedRatios.find(r => r.value === selectedRatio.value);
     if (foundRatio) {
@@ -62,39 +71,39 @@ function App() {
     }
   };
 
-  const handleAChange = (e) => {
+  const handleAChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;
     setAValue(value);
     setRatio('custom');
   };
 
-  const handleBChange = (e) => {
+  const handleBChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;
     setBValue(value);
     setRatio('custom');
   };
 
-  const handleDyeChange = (e) => {
+  const handleDyeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDyeAmount(parseFloat(e.target.value));
   };
 
-  const handleInputTypeChange = (type) => {
+  const handleInputTypeChange = (type: 'weight' | 'volume') => {
     setInputType(type);
   };
 
-  const handleTargetWeightChange = (e) => {
+  const handleTargetWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTargetWeight(parseFloat(e.target.value) || 0);
   };
 
-  const handleTargetVolumeChange = (e) => {
+  const handleTargetVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTargetVolume(parseFloat(e.target.value) || 0);
   };
 
-  const handleDensityChange = (e) => {
+  const handleDensityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMaterialDensity(parseFloat(e.target.value) || 1);
   };
 
-  const handleLossChange = (e) => {
+  const handleLossChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLossPercentage(parseFloat(e.target.value) || 0);
   };
 
