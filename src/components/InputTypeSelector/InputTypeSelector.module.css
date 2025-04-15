@@ -1,14 +1,17 @@
 .inputTypeSelector {
     margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
   }
   
   .inputTypeSelector button {
-    padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
-    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    border: 1px solid #ddd;
     background: white;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    font-size: 0.9rem;
   }
   
   .inputTypeSelector button.active {
@@ -18,9 +21,16 @@
   }
   
   .inputTypeSelector button:hover {
-    background: #f0f0f0;
+    background: #f5f5f5;
   }
   
   .inputTypeSelector button.active:hover {
     background: #45a049;
   }
+
+  /* .customRatio .inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  } */

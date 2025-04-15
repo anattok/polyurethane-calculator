@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputType } from '../../../utils/types';
+import { InputType } from '../../utils/types';
 import styles from './InputTypeSelector.module.css';
 
 interface InputTypeSelectorProps {
