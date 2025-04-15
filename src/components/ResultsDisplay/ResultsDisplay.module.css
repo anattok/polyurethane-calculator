@@ -1,0 +1,33 @@
+.results {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  .results h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .resultItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .resultItem:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  
+  .resultItem span:first-child {
+    font-weight: 500;
+  }
+  
+  .resultItem span:last-child {
+    color: #4CAF50;
+    font-weight: bold;
+  }

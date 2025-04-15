@@ -1,0 +1,22 @@
+.dyeSlider {
+    margin: 2rem 0;
+  }
+  
+  .dyeSlider h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .dyeSlider input[type="range"] {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 0.3rem;
+  }
+  
+  .sliderLabels {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    font-size: 0.8rem;
+    color: #666;
+  }
