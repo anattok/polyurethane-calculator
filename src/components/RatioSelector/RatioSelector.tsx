@@ -13,11 +13,13 @@ const RatioSelector = () => {
     setBValue
   } = useMaterialCalculator();
 
+  //ввод своего значения а
   const handleAChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;
     setAValue(value);
   };
 
+  //ввод своего значения б
   const handleBChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;
     setBValue(value);
