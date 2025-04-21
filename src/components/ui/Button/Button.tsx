@@ -1,16 +1,16 @@
-import React from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import s from './Button.module.css';
 
 type ButtonSize = 'small' | 'medium' | 'large';
 type ButtonColor = 'primary' | 'secondary';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   color?: ButtonColor;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   size = 'medium',
   color = 'primary',
   className = '',

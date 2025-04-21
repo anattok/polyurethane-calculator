@@ -5,14 +5,14 @@ export interface RatioOption {
     b: number;
   }
   
-  export type InputType = 'weight' | 'volume';
+  export type CalcMethodType = 'weight' | 'volume';
   
   export interface CalculationResult {
     a: number;
     b: number;
     total: number;
     originalTarget: number;
-    inputType: InputType;
+    calcMethodType: CalcMethodType;
     withLoss: boolean;
     lossPercentage: number;
     totalWithoutLoss: number;

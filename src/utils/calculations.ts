@@ -1,10 +1,10 @@
-import { CalculationResult, InputType } from './types';
+import { CalculationResult, CalcMethodType } from './types';
 
 export const calculateComponents = (
   aValue: number,
   bValue: number,
   dyeAmount: number,
-  inputType: InputType,
+  calcMethodType: CalcMethodType,
   targetWeight: number,
   targetVolume: number,
   materialDensity: number,
@@ -12,7 +12,7 @@ export const calculateComponents = (
 ): CalculationResult => {
   let totalWeight = 0;
   
-  if (inputType === 'weight') {
+  if (calcMethodType === 'weight') {
     const lossFactor = 1 + (lossPercentage / 100);
     totalWeight = targetWeight * lossFactor;
   } else {
@@ -28,10 +28,10 @@ export const calculateComponents = (
     a: aComponent,
     b: bComponent,
     total: aComponent + bComponent + dyeAmount,
-    originalTarget: inputType === 'weight' ? targetWeight : targetVolume,
-    inputType,
-    withLoss: inputType === 'weight',
-    lossPercentage: inputType === 'weight' ? lossPercentage : 0,
-    totalWithoutLoss: inputType === 'weight' ? targetWeight : targetVolume * materialDensity
+    originalTarget: calcMethodType === 'weight' ? targetWeight : targetVolume,
+    calcMethodType,
+    withLoss: calcMethodType === 'weight',
+    lossPercentage: calcMethodType === 'weight' ? lossPercentage : 0,
+    totalWithoutLoss: calcMethodType === 'weight' ? targetWeight : targetVolume * materialDensity
   };
 };

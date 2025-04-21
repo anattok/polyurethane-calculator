@@ -1,18 +1,33 @@
 import React from 'react';
 import styles from './RatioSelector.module.css';
-import { useMaterialCalculator } from '../../hooks/useMaterialCalculator';
+import { Button } from '../ui/Button/Button';
 
-const RatioSelector = () => {
-  const {
-    ratio,
-    aValue,
-    bValue,
-    predefinedRatios,
-    handleRatioChange,
-    setAValue,
-    setBValue
-  } = useMaterialCalculator();
+interface RatioOption {
+  value: string;
+  label: string;
+  a: number;
+  b: number;
+}
 
+interface RatioSelectorProps {
+  ratio: string;
+  aValue: number;
+  bValue: number;
+  predefinedRatios: RatioOption[];
+  handleRatioChange: (ratio: RatioOption) => void;
+  setAValue: (value: number) => void;
+  setBValue: (value: number) => void;
+}
+
+const RatioSelector: React.FC<RatioSelectorProps> = ({
+  ratio,
+  aValue,
+  bValue,
+  predefinedRatios,
+  handleRatioChange,
+  setAValue,
+  setBValue,
+}) => {
   //ввод своего значения а
   const handleAChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value) || 0;
@@ -30,37 +45,27 @@ const RatioSelector = () => {
       <h2>Соотношение компонентов:</h2>
       <div className={styles.ratioButtons}>
         {predefinedRatios.map((ratioOption) => (
-          <button
-            key={ratioOption.value}
+          <Button
             className={ratio === ratioOption.value ? styles.active : ''}
+            key={ratioOption.value}
+            color="primary"
+            size="large" //TODO: НЕ РАБОТАЕТ РАЗМЕР
             onClick={() => handleRatioChange(ratioOption)}
           >
             {ratioOption.label}
-          </button>
+          </Button>
         ))}
       </div>
       <div className={styles.customRatio}>
         <div className={styles.inputGroup}>
           <label>
             Компонент A:
-            <input 
-              type="number" 
-              value={aValue} 
-              onChange={handleAChange} 
-              min="0" 
-              step="0.1"
-            />
+            <input type="number" value={aValue} onChange={handleAChange} min="0" step="0.1" />
           </label>
           <span>:</span>
           <label>
             Компонент B:
-            <input 
-              type="number" 
-              value={bValue} 
-              onChange={handleBChange} 
-              min="0" 
-              step="0.1"
-            />
+            <input type="number" value={bValue} onChange={handleBChange} min="0" step="0.1" />
           </label>
         </div>
       </div>

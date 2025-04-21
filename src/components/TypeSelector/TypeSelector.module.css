@@ -34,3 +34,12 @@
     gap: 1rem;
     flex-wrap: wrap;
   } */
+
+  .active {
+    transform: translateY(0);
+    box-shadow: none;
+    background: #4caf50;
+    color: white;
+    border-color: #4caf50;
+  }
+  
