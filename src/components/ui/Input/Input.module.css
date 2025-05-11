@@ -1,8 +1,10 @@
 /* Базовые стили инпута */
+
 .input {
   display: flex;
   gap: 0.5rem;
   max-width: fit-content;
+  position: relative;
 }
 .input input {
   border: 1px solid #d1d5db;
@@ -21,7 +23,9 @@
   padding: 6px 12px;
   font-size: 14px;
   height: 32px;
-  width: 120px;
+  width: 130px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .medium input {
@@ -40,8 +44,14 @@
 
 /* Стили для лейблов */
 .small label {
-  font-size: 0.875rem;
-  width: 120px;
+  border-radius: 5px;
+  padding: 4px 6px 4px;
+  font-size: 10px;
+  width: auto;
+  position: absolute;
+  z-index: 1;
+  top: -19px;
+  left: 1px;
 }
 
 .medium label {

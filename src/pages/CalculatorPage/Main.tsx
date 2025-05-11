@@ -1,12 +1,14 @@
 import { useMaterialCalculator } from '../../hooks/useMaterialCalculator';
-import TypeSelector from '../../components/TypeSelector/TypeSelector';
+
+import { CalculationTypeSwitcher } from '../../components/CalculationTypeSwitcher/CalculationTypeSwitcher';
 import RatioSelector from '../../components/RatioSelector/RatioSelector';
 import DyeSlider from '../../components/DyeSlider/DyeSlider';
 import ResultsDisplay from '../../components/ResultsDisplay/ResultsDisplay';
 
-import { CalculationMethod } from '../../components/CalculationMethod/CalculationMethod';
 
-import s from './CalculatorPage.module.css';
+import s from './Main.module.css';
+import Header from '../../components/Header/Header';
+
 
 const CalculatorPage = () => {
   const {
@@ -48,15 +50,16 @@ const CalculatorPage = () => {
     dyeAmount,
     // Функция для изменения количества красителя
     setDyeAmount,
-    predefinedRatios
+    predefinedRatios,
   } = useMaterialCalculator();
 
   return (
-    <div className={s.app}>
+    <div className={s.wrapper}>
+      <Header/>
       <div className={s.inputSection}>
-        <h2>Параметры отливки:</h2>
-        <TypeSelector calcMethodType={calcMethodType} setCalcMethodType={setCalcMethodType} />
-        <CalculationMethod
+        <CalculationTypeSwitcher
+          calcMethodType={calcMethodType}
+          setCalcMethodType={setCalcMethodType}
           targetWeight={targetWeight}
           targetVolume={targetVolume}
           materialDensity={materialDensity}
@@ -65,10 +68,8 @@ const CalculatorPage = () => {
           setTargetVolume={setTargetVolume}
           setMaterialDensity={setMaterialDensity}
           setLossPercentage={setLossPercentage}
-          calcMethodType={calcMethodType}
         />
-      </div>
-      <RatioSelector
+        <RatioSelector
         ratio={ratio}
         aValue={aValue}
         bValue={bValue}
@@ -77,6 +78,8 @@ const CalculatorPage = () => {
         setBValue={setBValue}
         predefinedRatios={predefinedRatios}
       />
+      </div>
+      
       <DyeSlider dyeAmount={dyeAmount} setDyeAmount={setDyeAmount} />
       <ResultsDisplay results={results} calcMethodType={calcMethodType} />
     </div>

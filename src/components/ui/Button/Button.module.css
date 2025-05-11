@@ -1,5 +1,6 @@
 /* Базовые стили кнопки */
 .button {
+  width: fit-content;
   padding: 10px 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -12,6 +13,9 @@
   text-decoration: none;
   margin: 4px 2px;
   display: inline-block;
+  -webkit-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
+box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 /* Состояния кнопки */

@@ -1,3 +1,17 @@
+:root {
+  /* Основные цвета */
+  --color-primary: #4caf50;      /* Основной зелёный */
+  --color-secondary: #45a049;    /* Вторичный зелёный (чуть темнее) */
+  --color-white: #ffffff;        /* Белый */
+  --color-shadow: #333333;       /* Тёмно-серый (тени) */
+  --color-border: #d1d5db;     /* Светло-серый (границы) */
+
+  /* Дополнительные варианты (опционально) */
+  --color-primary-light: rgba(76, 175, 80, 0.1);  /* Прозрачный primary */
+  --color-secondary-light: rgba(69, 160, 73, 0.1); /* Прозрачный secondary */
+  --color-shadow-light: rgba(51, 51, 51, 0.1);    /* Лёгкая тень */
+}
+
 body, html {
   width: 100%; 
   margin: 0;  

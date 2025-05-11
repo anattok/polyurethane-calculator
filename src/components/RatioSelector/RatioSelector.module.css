@@ -1,58 +1,61 @@
 .ratioSelector {
-    margin: 2rem 0;
-  }
-  
-  .ratioSelector h2 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .ratioButtons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
+  background: rgba(0, 0, 0, 0.11);
+  padding: 16px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
 
-  .active{
-    transform: translateY(0);
-    box-shadow: none;
-    background: #4caf50;
-    color: white;
-    border-color: #4caf50;
-  }
-  
-  .customRatio {
-    margin-top: 1rem;
-  }
-  
-  .customRatio .inputGroup {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .customRatio label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .customRatio input {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 80px;
-  }
-  
-  .customRatio input:focus {
-    outline: none;
-    border-color: #4CAF50;
-  }
-  
-  .customRatio span {
-    font-weight: bold;
-    color: #555;
-  }
+.ratioSelector h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.ratioButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.active {
+  transform: translateY(0);
+  box-shadow: none;
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.customRatio {
+  margin-top: 1rem;
+}
+
+.customRatio .inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.customRatio label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.customRatio input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+}
+
+.customRatio input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.customRatio span {
+  font-weight: bold;
+  color: #555;
+}

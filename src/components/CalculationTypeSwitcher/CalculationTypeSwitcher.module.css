@@ -1,0 +1,31 @@
+.calculationTypeSwitcher {
+  background: rgba(0, 0, 0, 0.11);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.selectorButtons {
+  width: 290px;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.calculationTypeSwitcher h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.inputWrap input {
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.active {
+  transform: translateY(0);
+  box-shadow: none;
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}

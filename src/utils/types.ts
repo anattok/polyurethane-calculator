@@ -10,6 +10,7 @@ export interface RatioOption {
   export interface CalculationResult {
     a: number;
     b: number;
+    dye: number; 
     total: number;
     originalTarget: number;
     calcMethodType: CalcMethodType;

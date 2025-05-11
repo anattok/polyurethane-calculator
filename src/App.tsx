@@ -1,4 +1,4 @@
-import CalculatorPage from './pages/CalculatorPage/CalculatorPage';
+import CalculatorPage from './pages/CalculatorPage/Main';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './App.css';;

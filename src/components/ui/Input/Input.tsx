@@ -10,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: FC<InputProps> = ({ label, sizeInput, className, ...props }) => {
-  const inputClasses = `${s.input} ${s[`${sizeInput}`]} ${className}`;
+  const inputClasses = `${className} ${s.input} ${s[`${sizeInput}`]}`;
 
   return (
     <div className={inputClasses}>

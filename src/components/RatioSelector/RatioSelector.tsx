@@ -49,7 +49,7 @@ const RatioSelector: React.FC<RatioSelectorProps> = ({
             className={ratio === ratioOption.value ? styles.active : ''}
             key={ratioOption.value}
             color="primary"
-            size="large" //TODO: НЕ РАБОТАЕТ РАЗМЕР
+            size="medium"
             onClick={() => handleRatioChange(ratioOption)}
           >
             {ratioOption.label}
@@ -62,7 +62,7 @@ const RatioSelector: React.FC<RatioSelectorProps> = ({
             Компонент A:
             <input type="number" value={aValue} onChange={handleAChange} min="0" step="0.1" />
           </label>
-          <span>:</span>
+
           <label>
             Компонент B:
             <input type="number" value={bValue} onChange={handleBChange} min="0" step="0.1" />
