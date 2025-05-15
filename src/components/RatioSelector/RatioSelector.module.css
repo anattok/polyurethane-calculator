@@ -1,8 +1,19 @@
 .ratioSelector {
-  background: rgba(0, 0, 0, 0.11);
-  padding: 16px;
-  border-radius: 10px;
-  margin-left: 20px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 0 20px 0;
+  max-width: 300px;
+
+
+}
+
+@media (min-width: 768px) {
+  .ratioSelector {
+    margin: 0 0 0 20px;
+      width: 100%;
+  }
 }
 
 .ratioSelector h2 {
@@ -11,11 +22,25 @@
   color: #333;
 }
 
+@media (max-width: 480px) {
+  .ratioSelector h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
 .ratioButtons {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .ratioButtons {
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .active {
@@ -37,10 +62,17 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  .customRatio .inputGroup {
+    gap: 0.75rem;
+  }
+}
+
 .customRatio label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  min-width: 120px;
 }
 
 .customRatio input {
@@ -48,6 +80,14 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 80px;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .customRatio input {
+    width: 70px;
+    padding: 0.4rem;
+  }
 }
 
 .customRatio input:focus {

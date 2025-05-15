@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import s from './Button.module.css';
 
 type ButtonSize = 'small' | 'medium' | 'large';
-type ButtonColor = 'primary' | 'secondary';
+type ButtonColor = 'primary' | 'secondary' | 'danger';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
@@ -18,7 +18,7 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const buttonClasses = `${s.button} ${s[`${size}`]} ${s[`${color}`]} ${className}`.trim();
-  
+
   return (
     <button className={buttonClasses} {...props}>
       {children}

@@ -1,14 +1,22 @@
 .calculationTypeSwitcher {
-  background: rgba(0, 0, 0, 0.11);
-  padding: 16px;
-  border-radius: 10px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+
+  @media (max-width: 768px) {
+    .calculationTypeSwitcher {
+      padding: 12px;
+      width: 100%;
+    }
+  }
 }
 
-.selectorButtons {
-  width: 290px;
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+@media (max-width: 480px) {
+  .calculationTypeSwitcher {
+    padding: 10px;
+  }
 }
 
 .calculationTypeSwitcher h2 {
@@ -17,15 +25,79 @@
   color: #333;
 }
 
+@media (max-width: 480px) {
+  .calculationTypeSwitcher h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.selectorButtons {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .selectorButtons {
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .selectorButtons button {
+    flex: 1;
+    padding: 8px !important;
+    font-size: 14px !important;
+    white-space: nowrap;
+  }
+}
+
+.inputGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .inputGroup {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputWrap label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
 .inputWrap input {
-  margin-bottom: 30px;
-  color: #ccc;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .inputWrap input {
+    padding: 6px;
+    font-size: 13px;
+  }
 }
 
 .active {
   transform: translateY(0);
   box-shadow: none;
-  background: #4caf50;
-  color: white;
-  border-color: #4caf50;
+  background: #4caf50 !important;
+  color: white !important;
+  border-color: #4caf50 !important;
 }

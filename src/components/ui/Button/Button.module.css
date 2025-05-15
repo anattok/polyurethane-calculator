@@ -14,8 +14,8 @@
   margin: 4px 2px;
   display: inline-block;
   -webkit-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 /* Состояния кнопки */
@@ -97,4 +97,15 @@ box-shadow: 4px 10px 8px 0px rgba(34, 60, 80, 0.2);
 
 .ghost:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.danger {
+  background-color: #ff5252;
+  color: white;
+  border-color: #ff5252;
+}
+
+.danger:hover {
+  background-color: #ff1744;
+  border-color: #ff1744;
 }

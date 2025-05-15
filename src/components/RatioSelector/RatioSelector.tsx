@@ -49,7 +49,7 @@ const RatioSelector: React.FC<RatioSelectorProps> = ({
             className={ratio === ratioOption.value ? styles.active : ''}
             key={ratioOption.value}
             color="primary"
-            size="medium"
+            size="large"
             onClick={() => handleRatioChange(ratioOption)}
           >
             {ratioOption.label}

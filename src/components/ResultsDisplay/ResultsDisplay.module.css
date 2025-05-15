@@ -1,35 +1,88 @@
 .results {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    border: 1px solid #e7e7e7;
-    box-shadow: 0 2px 4px rgba(26, 26, 26, 0.2);
+  background: #ffffff;
+  border-radius: 8px;
+  margin: 1rem auto;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .results {
+    padding: 12px;
+    margin: 0.5rem auto;
+    font-size: 14px;
   }
-  
+
   .results h2 {
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 1rem;
   }
-  
+}
+
+.results h2 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.resultItem {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
   .resultItem {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
   }
-  
-  .resultItem:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-  
+
   .resultItem span:first-child {
-    font-weight: 500;
+    font-size: 0.85rem;
   }
-  
-  .resultItem span:last-child {
-    color: #4CAF50;
-    font-weight: bold;
+}
+
+.resultItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.resultItem span:first-child {
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultItem span:last-child {
+  color: #2196f3;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Стили для основных результатов */
+.resultItem:nth-child(2),
+.resultItem:nth-child(3) {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+  .resultItem:nth-child(2),
+  .resultItem:nth-child(3) {
+    font-size: 1rem;
   }
+}
+
+.resultItem:nth-child(2) span:last-child,
+.resultItem:nth-child(3) span:last-child {
+  color: #4caf50;
+  font-weight: 600;
+}

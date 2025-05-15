@@ -5,6 +5,7 @@ import { Button } from '../ui/Button/Button';
 import { Input } from '../ui/Input/Input';
 
 import s from './CalculationTypeSwitcher.module.css';
+import DyeSlider from '../DyeSlider/DyeSlider';
 
 interface CalculationTypeSwitcherProps {
   calcMethodType: CalcMethodType;
@@ -17,6 +18,8 @@ interface CalculationTypeSwitcherProps {
   setTargetVolume: (value: number) => void;
   setMaterialDensity: (value: number) => void;
   setLossPercentage: (value: number) => void;
+  dyeAmount: number;
+  setDyeAmount: (value: number) => void;
 }
 
 export const CalculationTypeSwitcher: React.FC<CalculationTypeSwitcherProps> = ({
@@ -30,6 +33,8 @@ export const CalculationTypeSwitcher: React.FC<CalculationTypeSwitcherProps> = (
   setTargetVolume,
   setMaterialDensity,
   setLossPercentage,
+  dyeAmount,
+  setDyeAmount
 }) => {
   // Обработчики изменений полей ввода
   const handleWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,6 +124,7 @@ export const CalculationTypeSwitcher: React.FC<CalculationTypeSwitcherProps> = (
           </>
         )}
       </div>
+      <DyeSlider dyeAmount={dyeAmount} setDyeAmount={setDyeAmount} />
     </div>
   );
 };
