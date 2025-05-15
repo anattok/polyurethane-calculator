@@ -1,43 +1,18 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import s from './Timers.module.css';
 import { Button } from '../ui/Button/Button';
-import { Toast } from '../ui/Toast/Toast';
-import timerSound from '../../assets/music.mp3';
+import { useTimers } from '../../context/TimerContext';
 
-interface Timer {
-  id: number;
-  name: string;
-  duration: number; // в секундах
-  timeLeft: number;
-  isRunning: boolean;
-}
-
-interface TimersProps {
-  timers: Timer[];
-  onAddTimer: (name: string, duration: number) => void;
-  onToggleTimer: (id: number) => void;
-  onResetTimer: (id: number) => void;
-  onDeleteTimer: (id: number) => void;
-}
-
-const Timers = ({
-  timers,
-  onAddTimer,
-  onToggleTimer,
-  onResetTimer,
-  onDeleteTimer,
-}: TimersProps) => {
+const Timers = () => {
   const [newTimerName, setNewTimerName] = useState('');
   const [newTimerDuration, setNewTimerDuration] = useState('');
-  const [toast, setToast] = useState<{ message: string; id: number } | null>(null);
-  const [prevTimers, setPrevTimers] = useState<Timer[]>([]);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { timers, addTimer, toggleTimer, resetTimer, deleteTimer } = useTimers();
 
   const handleAddTimer = () => {
     if (!newTimerName || !newTimerDuration) return;
 
     const duration = parseInt(newTimerDuration);
-    onAddTimer(newTimerName, duration);
+    addTimer(newTimerName, duration);
     setNewTimerName('');
     setNewTimerDuration('');
   };
@@ -48,30 +23,8 @@ const Timers = ({
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-  // Check if any timer has just finished
-  timers.forEach((timer) => {
-    const prevTimer = prevTimers.find((t) => t.id === timer.id);
-    if (prevTimer && prevTimer.timeLeft > 0 && timer.timeLeft === 0) {
-      setToast({ message: `Таймер "${timer.name}" завершен!`, id: Date.now() });
-      // Play sound when timer ends
-      if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch((error) => {
-          console.error('Error playing sound:', error);
-        });
-      }
-    }
-  });
-
-  // Update prevTimers after checking
-  if (JSON.stringify(prevTimers) !== JSON.stringify(timers)) {
-    setPrevTimers(timers);
-  }
-
   return (
     <div className={s.timersContainer}>
-      <audio ref={audioRef} src={timerSound} preload="auto" />
-
       <div className={s.addTimerForm}>
         <input
           type="text"
@@ -98,24 +51,29 @@ const Timers = ({
           <div key={timer.id} className={s.timerCard}>
             <div className={s.timerInfo}>
               <h3>{timer.name}</h3>
-              <div className={s.time}>{formatTime(timer.timeLeft)}</div>
+              <div className={s.timeWrapper}>
+                <div className={timer.timeLeft === 0 ? s.timeCompleted : s.time}>
+                  {formatTime(timer.timeLeft)}
+                </div>
+                {timer.timeLeft === 0 && timer.isRunning && (
+                  <div className={s.overtime}>+{formatTime(timer.overtime)}</div>
+                )}
+              </div>
             </div>
             <div className={s.timerControls}>
-              <Button onClick={() => onToggleTimer(timer.id)} color="primary" size="small">
+              <Button onClick={() => toggleTimer(timer.id)} color="primary" size="small">
                 {timer.isRunning ? 'Пауза' : timer.timeLeft === 0 ? 'Перезапуск' : 'Старт'}
               </Button>
-              <Button onClick={() => onResetTimer(timer.id)} color="secondary" size="small">
+              <Button onClick={() => resetTimer(timer.id)} color="secondary" size="small">
                 Сброс
               </Button>
-              <Button onClick={() => onDeleteTimer(timer.id)} color="danger" size="small">
+              <Button onClick={() => deleteTimer(timer.id)} color="danger" size="small">
                 Удалить
               </Button>
             </div>
           </div>
         ))}
       </div>
-
-      {toast && <Toast message={toast.message} onClose={() => setToast(null)} duration={5000} />}
     </div>
   );
 };

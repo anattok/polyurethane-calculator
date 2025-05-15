@@ -120,3 +120,39 @@
     grid-template-columns: 1fr;
   }
 }
+
+.timeWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timeCompleted {
+  font-size: 24px;
+  font-weight: 500;
+  color: #f44336;
+  font-family: monospace;
+  text-decoration: line-through;
+}
+
+.overtime {
+  font-size: 20px;
+  font-weight: 500;
+  color: #f44336;
+  font-family: monospace;
+}
+
+@media (max-width: 480px) {
+  .addTimerForm {
+    flex-direction: column;
+  }
+
+  .timerCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timerControls {
+    justify-content: flex-end;
+  }
+}
